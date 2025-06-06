@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트</title>
+</head>
+<body>
+    <p>변경할 요소</p>
+    <button>클릭되면 변경할 요소 색상 변경</button>
+</body>
+<script>
+    const p = document.querySelector("p")
+    const button = document.querySelector("button");
+    button.addEventListener("click", (e)=>{
+        // console.log(e)
+        p.style.color = "red";
+    })
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>switch문 실습</title>
+</head>
+<body>
+  
+</body>
+  <!--
+  번호 입력받기 prompt로 입력받기 (힌트 형변환)
+  // 심리 테스트, 번호 입력받기
+
+  // Q. 당신이 좋아하는 색을 선택하세요.
+  // 1. 빨간색
+  // 2. 노란색
+  // 3. 검은색
+  // 4. 흰색
+
+  // 숫자를 입력받으면 아래 문장을 실행
+
+  // 빨간색 : 불같고 열정적이고 적극적이다.
+  // 노란색 : 발랄하고 밝고 귀엽고 개성있고 착하다.
+  // 검은색 : 묵묵하고 든든하고 냉철하고 멋지다.
+  // 흰색: 천사같고 깔끔하고 정리를 좋아하고 배려심이 많다. 
+
+  화면에 결과를 strong태그로 출력하기
+  -->
+  <script>
+    const redMessage = "불같고 열정적이고 적극적이다.";
+    const yelowMessage = "발랄하고 밝고 귀엽고 개성있고 착하다.";
+    const blackMessage = "묵묵하고 든든하고 냉철하고 멋지다."
+    const whiteMessage = "천사같고 깔끔하고 정리를 좋아하고 배려심이 많다."
+    const errorMessage = "아래 번호를 다시 입력하세요.\n1. 빨간색\n2. 노란색\n3. 검은색\n4. 흰색"
+    const exampleMessage = "Q. 당신이 좋아하는 색을 선택하세요.\n1. 빨간색\n2. 노란색\n3. 검은색\n4. 흰색"
+    let choice = +prompt(exampleMessage) // 자동 형변환 문자열 -> 정수
+    let resultMessage = "";
+    
+    console.log(typeof(choice)) // 입력된 값의 데이터 타입 확인
+    console.log(choice === 1) // 입력값이 1과 일치하는지 확인 
+    
+
+    switch(choice){
+      case 1:
+        resultMessage = redMessage;
+        break;
+      case 2:
+        resultMessage = yelowMessage;
+        break;
+      case 3:
+        resultMessage = blackMessage;
+        break;
+      case 4:
+        resultMessage = whiteMessage;
+        break;
+      default :
+        resultMessage = errorMessage;
+        break;
+    }
+    
+    let result = `<storng>${resultMessage}</strong>`
+    document.write(result)
+  </script>
+</html>

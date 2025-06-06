@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스</title>
+</head>
+<body>
+  <label><input type="checkbox" value="선택1">선택1 </label>
+  <label><input type= "checkbox" value="선택2">선택2 </label>
+  <label><input type="checkbox" value="선택3">선택3 </label>
+  <p id="result"></p>
+</body>
+<script>
+  NodeList.prototype.filter = Array.prototype.filter;
+
+  // DOM들고오기
+  const checkboxes = document.querySelectorAll("input[type='checkbox']");
+  const result = document.querySelector("#result")
+  // console.log(checkboxes)
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", (e) => {
+      if(e.target.checked){
+        const strong = document.createElement("strong")
+        strong.innerText = e.target.value
+        strong.style.marginRight = "8px"
+        result.appendChild(strong)        
+        // result.innerText += e.target.value
+      }else{
+        const strongs = document.querySelectorAll("#result strong")
+        const target = strongs.filter((strong) => strong.innerText === e.target.value)[0];
+        result.removeChild(target)
+        // result.innerText = result.innerText.replaceAll(e.target.value, "") //문제점--> 문자열로 이어버렸기때문에 스타일 생성 불가, 들고올 수 없음
+      }
+    })
+  })
+
+</script>
+</html>

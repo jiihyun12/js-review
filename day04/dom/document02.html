@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>name을 이용한 선택</title>
+</head>
+<body>
+    <form>
+        <div>
+            <input type="checkbox" name="language" value="all"> 전체선택
+        </div>
+        <div>
+            <input type="checkbox" name="language" value="c"> C언어
+        </div>
+        <div>
+            <input type="checkbox" name="language" value="java"> 자바
+        </div>
+        <div>
+            <input type="checkbox" name="language" value="javaScript"> 자바스크립트
+        </div>
+    </form>
+</body>
+<script>
+    NodeList.prototype.forEach = Array.prototype.forEach;
+
+    // const checkboxes = document.getElementsByName("language");
+    // // console.log(checkboxes)
+    // checkboxes.forEach((check)=>{
+    //     console.log(check.value)
+    // })
+
+// 전체 선택 만들기
+// 모든 버튼을 checked 상태로 만들기
+
+const checked = document.getElementsByName("language");
+checked.forEach((check)=>{
+    check.checked = "true"
+})
+
+</script>
+</html>

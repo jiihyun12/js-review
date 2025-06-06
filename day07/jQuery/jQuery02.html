@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery02</title>
+</head>
+<body>
+  <ul class="car">
+    <li>X5</li>
+    <li>파나메라</li>
+    <li>카이엔</li>
+    <li>벤틀리</li>
+  </ul>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+  // .closest() : 부모에서 찾기
+  // .find() : 자식에서 찾기
+  // .prev() : 이전 요소 가지고 오기
+  // .next() : 다음 요소 가지고 오기
+  // .eq(인덱스) : 인덱스의 해당요소를 가지고 오기
+  const $ul = $("ul")
+  const $list = $("li")
+  console.log("ul", $ul)
+  console.log("list", $list)
+  // jQuery객체에서 한 개를 가져와서 [], . JS객체로 바뀐다.
+  // 즉 jQuery객체에서 한 개를 가져오고 싶다면 eq또는 jQuery 객체로 다시 바꿔서 사용해야 한다.
+  // console.log($list[0].css("color", "blue"))
+  // console.log($($list[0]).css("color", "blue"))
+  // console.log($list.eq(0).css("color", "blue"))
+  // console.log(Array.from($list))
+
+  // .each((i, data) => {}) === forEach((data, i, datas) => {})
+
+  // $list.css("color", "blue")
+
+  $ul.find("li").each((i, li) => {
+    if($(li).text() === "벤틀리"){
+      console.log($(li))
+    }
+  })
+
+  // 값을 선택
+  // console.log($list.eq(2).prev().text())
+
+  // 값을 수정
+  // $list.eq(0).next().text("벤츠")
+
+  // 속성
+  // $list.eq(0).closest("ul").attr("class", "super-car")
+
+  // 삭제
+  // $ul.find("li").first().remove()
+
+  // 추가
+  // $ul.append("<li>BMW</li>")
+  // $ul.html("<li>람보르기니</li>")
+
+</script>
+</html>

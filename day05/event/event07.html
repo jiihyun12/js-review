@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="view`port" content="width=device-width, initial-scale=1.0">
+  <title>첨부파일 썸네일</title>
+  <style>
+    
+    .wrap{
+      width: 70px;
+      height: 70px;
+    }
+
+    div.image {
+      cursor: pointer;
+      width: 70px;
+      height: 70px;
+      background-image: url(../images/default.jpg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  
+    input[type='file'] {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <form>
+    <div class="wrap">
+      <label for="attach">
+        <div class="image"></div>
+      </label>
+    </div>
+    <input type="file" id="attach">
+  </form>
+</body>
+<script>
+  const input = document.getElementById("attach")
+  const thumbnail = document.querySelector("div.image")
+
+  input.addEventListener("change", (e) => {
+    const reader = new FileReader()
+
+    // console.log(e.target.files[0])
+    reader.readAsDataURL(e.target.files[0]) // 비동기
+    reader.onload = (e) => {
+      thumbnail.style.backgroundImage = `url(${e.target.result})`
+    }
+  })
+
+
+</script>
+</html>
+

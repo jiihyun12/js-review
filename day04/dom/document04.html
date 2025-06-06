@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 동적으로 생성, 삽입, 삭제</title>
+</head>
+<body>
+    <div id="wrap">
+        <p>DOM 트리에 동적으로 객체를 삽입할 수 있다.</p>
+        <p>.createElement("태그명"), .appendChile("태그 객체"),
+            .removeChild("태그객체")
+        </p>
+        <p>위 3개의 메서드를 이용해서 새로운 객체를 생성, 삽입, 삭제한다.</p>
+        <a href="javascript:createDiv()">div 생성</a>
+    </div>
+</body>
+<script>
+
+// Math.random : 0 ~ n - 1 랜덤 값
+    // Math
+    // console.log(Math.floor(Math.random() * 10)) // 내림
+    // console.log(Math.ceil(Math.random() * 10)) // 올림
+    // console.log(Math.ceil(Math.random() * 10))
+    
+    globalThis.number = 0;
+    function createDiv(){
+        const colors = new Array(
+            "yellow",
+            "red",
+            "blue",
+            "green",
+            "skyblue",
+            "orange",
+            "pink"
+        )
+
+        const i = Math.floor(Math.random() * colors.length)
+        const div = document.createElement("div")
+        // 랜덤컬러, 몇 번째 div로 생성되었는지 확인
+        div.style.backgroundColor = colors[i]
+        div.innerText = `새로 생성된 ${++globalThis.number}div입니다.`
+        document.getElementById("wrap").appendChild(div)
+
+        div.onclick = function(){
+            this.parentElement.removeChild(this) // 여기서 this는 div이다. 
+            // 일반 함수는 영역을 this로 묶는다. 
+            // 화살표 함수는 this라는 개념이 없다.
+            // 감싸고 있는 영역을 찾지 못해서 부모를 찾아간다. 따라서 window를 호출하게 된다.
+            // 결론 : 화살표함수로 하면 안 된다.
+        }        
+    }
+</script>
+</html>

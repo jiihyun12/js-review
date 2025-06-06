@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스 동의</title>
+</head>
+<body>
+  <form name="myForm">
+    <div>
+      <label>
+          전체 동의 <input type="checkbox" name="all" class="all" />
+      </label>
+    </div>
+    <div>
+      <label>
+          서비스 이용약관 동의<input type="checkbox" name="term1" class="term" />
+      </label>
+    </div>
+    <div>
+      <label>
+          광고 수신 동의<input type="checkbox" name="term2" class="term" />
+      </label>
+    </div>
+    <div>
+      <label>
+          개인 정보 이용약관 동의<input type="checkbox" name="term3" class="term" />
+      </label>
+    </div>
+  </form>
+</body>
+<script>
+      // 전체 동의 완성
+    // 1. 배열에 담아서 들고온다.
+    // 2. 클릭이벤트를 붙인다.
+    // 3. target 체크가 되었는지 안되었는지를 확인한다.
+    // 4. 전체가 선택되었다면, 전체 동의 체크박스를 선택 해제되게 만든다.
+    // 5. 전체가 선택이 안되었다면 전체동의 체크박스를 선택 해제되게 만든다.
+    // 6. 전체 선택이 해제되었다면 나머지도 전체 해제된다.
+
+  NodeList.prototype.map = Array.prototype.map;
+
+  const all = document.querySelector("input.all")
+  const terms = document.querySelectorAll("input.term")
+
+  all.addEventListener("click", (e) => {
+    let target = e.target;
+    terms.forEach((term) => {
+      term.checked = target.checked
+    })
+  })
+    
+  terms.forEach((term) => {
+    term.addEventListener("click", (e) => {
+      let target = e.target;
+      console.log(terms.map((term) => term.checked).filter((checked) => checked).length === 3)
+      all.checked = terms.map((term) => term.checked).filter((checked) => checked).length === 3
+    })
+  })
+
+</script>
+</html>
+
+
+<!--  -->
+<!-- 
+이런 문제처럼
+서로 다른 상태 변화의 연결이 어려운듯
+
+개별 체크박스의 흐름과 개별 체크박스에서 전체 동의로 가는 흐름이
+서로 다른 방향으로 작동하는 느낌인데 
+적으면서도 헷갈린다
+뭔가 두 흐름이 동시에 작동하는 느낌이 드는 순간 다 꼬이는 듯하다
+
+코드 전체의 흐름이 눈에 들어오지 않는 것도 맞는듯
+
+코드의 목적과 단계별 동작, 최종 결과가 명확히 그려지지 않음
+
+전체 동의를 클릭하면 모든 체크박스가 체크된다는 건 바로 이해가 되지만
+개별 체크박스 중 하나를 클릭했을 때, 전체 동의 상태는 어떻게 변경되는지 바로 생각하기 어렵고
+메서드를 쓰는 것에 있어서 세부적인 흐름이 머리에 바로 떠오르지 않아서 막막함을 느끼는 듯하다.
+
+전체 흐름을 이해하고 구현을 떠올리기 쉽게 만드는 게 필요할듯하다?
+
+-->

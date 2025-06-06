@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클릭 유효성 검사</title>
+</head>
+<body>
+  <form>
+    <div>
+      <span>아이디</span><input class="confirm" type="text" name="id" placeholder="아이디를 입력하세요." />
+    </div>
+    <p id="id-result"></p>
+    <div>
+      <span>비밀번호</span><input class="confirm" type="password" name="password" placeholder="비밀번호를 입력하세요." />
+    </div>
+    <p id="password-result"></p>
+    <button type="button">전송</button>
+  </form>
+</body>
+<script>
+
+  const inputs = document.querySelectorAll(".confirm")
+  const button = document.querySelector("button")
+  const id = document.querySelector("input[name='id']");
+  const password = document.querySelector("input[name='password']")
+  const form = document.querySelector("form");
+  const idResult = document.querySelector("#id-result");
+  const passwordResult = document.querySelector("#password-result")
+
+  globalThis.flag = new Array(false, false)
+
+
+  // 실습. 배열을 이용해서, 아이디와 비밀번호 검증을 하나의 blur 이벤트 로직으로 처리하기 확인하기
+
+  inputs.forEach((input, i) => {
+    input.addEventListener("blur", (e) => {
+      const target = e.target;
+      if(target.name === "id"){
+        if(!target.value){
+          globalThis.flag[0] = false
+          idResult.innerText = "아이디를 입력하세요."
+          idResult.style.color = "red"
+          // target.focus();
+          return;
+        }
+
+        globalThis.flag[0] = true
+        idResult.innerText = "멋진 아이디네요~!"
+        idResult.style.color = "blue"
+
+      }else{
+        if(!target.value){
+          globalThis.flag[1] = false;
+          passwordResult.innerText = "비밀번호를 입력하세요."
+          passwordResult.style.color = "red"
+          return;
+        }
+        globalThis.flag[1] = true;
+        passwordResult.innerText = "검증 완료!😎"
+        passwordResult.style.color = "blue"
+      }
+    })
+  })
+
+  // id.addEventListener("blur", (e) => {
+  //   const target = e.target;
+
+  //   if(!target.value){
+  //     globalThis.flag[0] = false
+  //     idResult.innerText = "아이디를 입력하세요."
+  //     idResult.style.color = "red"
+  //     // target.focus();
+  //     return;
+  //   }
+  //   globalThis.flag[0] = true
+  //   idResult.innerText = "멋진 아이디네요~!"
+  //   idResult.style.color = "blue"
+  // })
+
+  // password.addEventListener("blur", (e) => {
+  //   const target = e.target;
+
+  //   if(!target.value){
+  //     globalThis.flag[1] = false;
+  //     passwordResult.innerText = "비밀번호를 입력하세요."
+  //     passwordResult.style.color = "red"
+  //     return;
+  //   }
+  //   globalThis.flag[1] = true;
+  //   passwordResult.innerText = "검증 완료!😎"
+  //   passwordResult.style.color = "blue"
+  // })
+
+  button.addEventListener("click", () => {
+    if(globalThis.flag.filter(check => check).length !== 2){
+      alert("정보를 정확히 입력해주세요!")
+      return;
+    }
+    form.submit()
+  })
+
+
+</script>
+</html>
+
+
+<!-- 흠 -->
+ <!-- 
+  코드에서 globalThis.flag를 사용해 배열을 선언하고 관리하는 부분이 어렵게 느껴진다.
+  여러 함수에서 접근해야해서 전역으로 접근하기 위해 사용
+  어디서나 접근 가능하도록 하기 위한 의도도 이해를 했는데
+  그럼 globalThis로 선언하는 대신 객체로 선언해서 관리해도 되는건가..?
+
+
+  아이디와 비밀번호 검증 로직을 배열을 활용해 하나로 합치는 부분도 어렵다.
+  inputs.forEach를 사용하는 로직에서 각각 다른 조건(아이디와 비밀번호)에 대해 분기 처리하는 방식이 헷갈린다.
+
+ -->

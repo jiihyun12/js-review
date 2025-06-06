@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // 사용자에게 1 ~ 5까지 숫자를 받아서 * 10을 해주는 프로그램
+  // 결과값은 콘솔에 출력한다.
+  // 단 사용자는 숫자 이외에 값을 입력할 수 있다.
+  // 런타임 오류가 발생했다면, "다시 입력하세요"라는 알림창을 띄운다.
+
+
+
+  // 사용자에게 값을 입력받는다. prompt
+  // 입력 받은 값을 숫자로 형변환
+  // 숫자가 1~5 사이인지 확인
+  // 맞다면 입력값에 10을 곱한 결과를 출력
+  // 아니라면 "다시 입력하세요"알림창
+
+  try {
+    const input = prompt("1에서 5사이의 숫자를 입력하세요.");
+    const num = Number(input);
+    // console.log(num)
+    if(num >= 5){
+      // console.log("유효하지 않은 입력값입니다.")
+      alert("유효하지 않은 입력값입니다.")
+    }else {
+      // console.log(num)
+      // console.log(num * 10)
+      // console.log(`<h1> ${num* 10}</h1>`)
+      document.write(`<h1> ${num* 10}</h1>`)
+    }
+  } catch (error) {
+    alert("다시 입력하세요")
+  }
+
+
+  
+</script>
+</html>

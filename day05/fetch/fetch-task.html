@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch 실습</title>
+</head>
+<body>
+    <ul id="getUserName"></ul>
+    <ul id="getTitle"></ul>
+</body>
+<script>
+    // fetch를 통해 데이터를 요청 후 가져온 데이터 중 name만 화면에 ul->li태그로 출력하기
+
+    const ul = document.getElementById("getUserName");
+    const ul2 = document.getElementById("getTitle");
+
+
+    // const users = fetch("https://jsonplaceholder.typicode.com/users")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         const names = data.map((user) => user.name);
+    //         names.forEach((name) => {
+    //             ul.innerHTML += `<li>7${name}</li>`; 
+    //         });
+    //     })
+    //     .catch(console.error)
+
+
+
+
+// https://jsonplaceholder.typicode.com/todos
+// completed 할일이 완료된 true 데이터 중 앞에서부터 10개만 가져와서 title을 출력하기
+
+const todos = fetch("https://jsonplaceholder.typicode.com/todos")
+        .then((res)=>res.json())
+        .then((datas)=>datas.slice(0,10)) 
+        .then((datas)=>datas.filter(({completed})=>true))
+        .then((datas)=>datas.map((datas)=>datas.title))
+        .then((result)=>{
+            result.forEach((title)=>{
+                const li = document.createElement("li")
+                li.innerText = title;
+                ul2.appendChild(li)
+            })
+        })
+        .then(console.log)
+        .catch(console.error)
+
+
+</script>
+</html>
+
+
+
+<!--  -->
+
+<!-- 
+얘도 풀긴 풀었지만 어렵다
+코드 흐름과 논리를 완전히 이해하지 못한 상태에서 따라 치고 그 느낌을 외워서 친 느낌?
+
+async/await 없이 fetch를 사용하는 방식에 다소 어려움이 있다.
+fetch의 반환값이 데이터가 아니라 Promise라는 점이 어렵게 다가온다.
+
+Promise는 데이터를 나중에 처리하는 구조이다? 그래서 비동기적 사고가 필요하다?
+비동기... 다 이해 못 한건가 내가 이해를 한 건지 못 한건지 잘 모르겠다
+설명을 듣고 코드를 보면 알긴 하겠는데 혼자 해보라해도 하겠는데 뭔가 찝찝한느낌
+다 모르는것같은...; 답답함..?
+
+알고리즘 세분화 어려움
+논리적으로 나눠서 생각하는 연습이 필요할 듯하다?
+
+전체적인 문제가
+뭔가 이해는 됐지만 어려운 부분이 조금씩 있는 상태에서 다른 걸 계속 누적하는 느낌..?
+-->
+                            

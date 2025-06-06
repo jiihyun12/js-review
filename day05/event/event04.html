@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>키 이벤트</title>
+</head>
+<body>
+  <div>
+    <span>이름</span><input type="text" placeholder="이름을 입력하세요!" />
+    <p id="result"></p>
+  </div>
+</body>
+<script>
+  const input = document.querySelector("input")
+  const result = document.querySelector("#result")
+
+  input.addEventListener("keydown", (e) => {
+    // 엔터를 누르면 result에 결과를 출력하기
+    console.log(e)
+    if(e.key === 'Enter'){
+      result.innerText = e.target.value;
+    }
+  })
+
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>operator 실습</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // prompt, 삼항 연산자, 산술 연산자, document.write
+    // 사용자에게 정수를 입력 받아서 짝수라면 짝수입니다. 아니라면 홀수입니다를 화면에 h1태그로 출력하기
+
+    // prompt로 정수를 입력받기
+    // 만약에 짝수라면 짝수입니다.
+    // 아니라면 홀수입니다.
+
+
+    let input = prompt("정수를 입력하세요")
+    let even = "짝수입니다.";
+    let odd = "홀수입니다.";
+    let isEven = input % 2 == 0;
+
+    let result = isEven ? even : odd;
+       
+    document.write(`<h1>${result}</h1>`);
+
+
+
+     
+
+</script>
+</html>

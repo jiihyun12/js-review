@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+ 
+
+</body>
+<script>
+    // 1) 사용자에게 prompt를 사용해서 이름을 받고,
+    // 변수에 담아서 콘솔에 출력하기
+
+    // let name = prompt("이름을 입력하세요")
+    // document.write(name + "님 환영합니다.")
+
+
+    // 2) let 키워드를 사용해서 사용자에게 confirm()의 결과를 받고
+    // 그 결과 값을 h1태그로 화면에 출력하기
+
+    let pay = "정말 결제하시겠습니까?";
+    const isTrue = confirm(pay);
+    document.write(`<h1>${isTrue}</h1>`);
+
+
+    // const를 이용해서 100의 number값을 변수에 담고, 
+    // 그 값을 이용해서 50으로 conosle에 출력하기
+
+    const number = 100;
+    document.write(number - 50);
+
+
+</script>
+</html>
