@@ -20,9 +20,6 @@ const reuslt1 = `큰 값 ${maxNum}, 작은 값${minNum}`;
 console.log(reuslt1);
 
 
-
-
-
 // 2) 정수를 넘기면 홀수인지 짝수인지 알려주는 함수
 // ex) oo은 홀수입니다.
 const isEvenOrOdd = (number) => {

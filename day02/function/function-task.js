@@ -65,8 +65,6 @@ console.log(countChar("abaa", "a"));
 
 
 
-
-
 // 플레티넘
 // 한글을 정수로 바꿔주는 함수 (일공이사 -> 1024)
 const korNums = "영일이삼사오육칠팔구";
