@@ -79,7 +79,6 @@ const changeToInt = (input) => {
 console.log(changeToInt("사육팔구"))
 
 
-
 // 정수를 한글로 바꿔주는 함수 ("1024" -> "일공이사")
 const changeToHangle = (numbers) => {
     let hangles = "공일이삼사오육칠팔구";
