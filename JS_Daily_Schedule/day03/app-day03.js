@@ -21,7 +21,6 @@ const schedules = [
 
 
 
-
 for (let i = 0; i < schedules.length; i++){
   const schedule = schedules[i]
   const start = schedule["start"]
