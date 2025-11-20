@@ -1,4 +1,3 @@
-
 const schedules = [
   {
     id: 1,
