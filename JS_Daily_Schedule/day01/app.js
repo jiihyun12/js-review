@@ -20,10 +20,7 @@ const schedules = [
   },
 ];
 
-// for(let i = 0; i < schedules.length; i++){
-//    const schedule = schedules[i]
-//    console.log(`[${schedule["id"]}] 그룹 : ${schedule["group"]} 시간 : ${schedule["start"]} ~ ${schedule["end"]}`)
-//}
+
 
 for (let i = 0; i < schedules.length; i++){
   const schedule = schedules[i]
