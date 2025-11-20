@@ -27,7 +27,8 @@ const schedules = [
 
 for (let i = 0; i < schedules.length; i++){
   const schedule = schedules[i]
-  if(schedule["group"] === "SC-03"){
-    console.log(schedule)
+  if (schedule["group"] === "SC-02"){
+    continue
   }
+  console.log(schedule)
 }
