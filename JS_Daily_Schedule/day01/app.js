@@ -19,6 +19,7 @@ const schedules = [
   },
 ];
 
+
 for (let i = 0; i < schedules.length; i++){
   const schedule = schedules[i]
   if (schedule["group"] === "SC-02"){
