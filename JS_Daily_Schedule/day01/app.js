@@ -20,6 +20,7 @@ const schedules = [
 ];
 
 
+// group이 "SC-02"가 아닌 스케줄만 콘솔에 출력
 for (let i = 0; i < schedules.length; i++){
   const schedule = schedules[i]
   if (schedule["group"] === "SC-02"){
@@ -27,3 +28,5 @@ for (let i = 0; i < schedules.length; i++){
   }
   console.log(schedule)
 }
+
+// not 연산자 사용 가능
