@@ -20,8 +20,20 @@ const schedules = [
 ];
 
 
+// 가장 시간이 긴 스케줄 1개를 찾아서 콘솔에 출력
 
+for (let i = 0; i < schedules.length; i++){
+  const schedule = schedules[i]
+  const start = schedule["start"]
+  const date = start.split(" ")
+  const hour = date[1]
+  const minute = hour.split(":")
+  const h = parseInt(minute[0])
+  const m = parseInt(minute[1])
+  const startTotal = h * 60 + m
 
+  
+  }
 
 
 
